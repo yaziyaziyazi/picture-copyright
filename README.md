@@ -6,8 +6,6 @@
 
 ## 项目技术
 
-
-
 * SpringBoot
 * Web3j
 * Solidity
@@ -24,63 +22,6 @@
 
 ![image-20210705205421930](README/image-20210705205421930.png)
 
-## 快速部署
-
-1. clone 项目到本地 
-
-2. 搭建以太坊私链
-
-   方式一：安装Ganache桌面版
-
-   ​		下载地址：https://www.trufflesuite.com/ganache
-
-   方式二：使用docker安装
-
-   ```yml
-   version: '2'
-   services:
-       ganache-cli:
-           image: trufflesuite/ganache-cli
-           container_name: ganache-cli
-           volumes:
-               - ./ganache_data:/ganache_data
-           ports:
-               - 8545:8545
-           command:
-               [
-                   '--gasLimit',
-                   '0xfffffffffff',
-               ]
-                  
-   ```
-
-3. 启动以太坊私链
-
-   在Ganache中获取以太坊账户的私钥，并填入`application.yml`中的`privatekey`
-
-   ![image-20210705210929807](README/image-20210705210929807.png)
-
-   私钥获取方式如下：
-
-   ![image-20210705210514854](README/image-20210705210514854.png)
-
-   或者（docker版本）
-
-   ![image-20210705210656517](README/image-20210705210656517.png)
-
-4. 在 IntelliJ IDEA 中打开 该项目，启动test目录下的测试模块，部署合约，获得合约地址
-
-   ![image-20210705211138852](README/image-20210705211138852.png)
-
-   
-
-   ![image-20210705211501442](README/image-20210705211501442.png)
-
-5. 将合约地址填入`application.yml`中的`address`
-
-   ![image-20210705211556831](README/image-20210705211556831.png)
-
-6. 然后启动SpringBoot项目的`MainApplication`，打开浏览器：http://localhost:8080/ 即可
 
    
 
